@@ -2,6 +2,7 @@ const path = require('path')
 const express = require('express')
 const chalk = require('chalk')
 const app = express()
+const port = process.env.PORT || 3000
 const hbs = require('hbs') //To set views path
 const geoCode = require('./utils/geoCode')
 
@@ -104,6 +105,6 @@ app.get('*', (req, res) => {
 //ap.com/help
 //app.com/admin
 
-app.listen(3000, () => {
-    console.log(chalk.green('Server is up on 3000'))
+app.listen(port, () => {
+    console.log(chalk.green('Server is up on ' + port))
 })
