@@ -6,7 +6,7 @@ const port = process.env.PORT || 3000
 const hbs = require('hbs') //To set views path
 const geoCode = require('./utils/geoCode')
 
-// Define paths for express config
+
 const publicDirectoryPath = path.join(__dirname, '../public')
 const viewPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
