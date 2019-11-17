@@ -1,17 +1,19 @@
 
 const addWeatherText = (e) => {
-    e.preventDefault()
-    const location = search.value
-    const locationmsg = document.querySelector('#locationPara')
-    const foreCastmsg = document.querySelector('#foreCastPara')
-    locationmsg.textContent = 'Loading....'
+    e.preventDefault();
+    const location = search.value;
+    const locationmsg = document.querySelector('#locationPara');
+    const foreCastmsgToday = document.querySelector('#foreCastPara');
+    const foreCastmsgTom = document.querySelector('#foreCastPara2');
+    locationmsg.textContent = 'Loading....';
     fetch('/weather?address=' + location).then((response) => {
     response.json().then((data) => {
         if (data.error) {
             locationmsg.textContent = data.error
         } else {
-            locationmsg.textContent = data.location
-            foreCastmsg.textContent = data.foreCast
+            locationmsg.textContent = data.location;
+            foreCastmsgToday.textContent = data.foreCast[0];
+            foreCastmsgTom.textContent = data.foreCast[1];
         }
     })
 })
