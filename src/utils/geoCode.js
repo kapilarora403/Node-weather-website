@@ -30,8 +30,8 @@ const forecast = (lat, long, callback) => {
         } else {
             
             callback(undefined, [`${body.daily.data[0].summary} It is currently ${body.currently.temperature} degrees out. 
-            There are ${body.currently.precipProbability * 100}% chances of rain.`,
-            `Tomorrow, it will be ${(body.hourly.data[0].summary).toLowerCase()} and it will be ${body.hourly.data[0].temperature} degrees out.
+            There are ${(body.currently.precipProbability * 100).toFixed(2)}% chances of rain.`,
+            `Tomorrow, it will be ${(body.hourly.data[0].summary).toLowerCase()} and ${body.hourly.data[0].temperature} degrees out.
             There will be ${(body.hourly.data[0].precipProbability * 100).toFixed(2)}% chances of rain.
             `]);
         }
